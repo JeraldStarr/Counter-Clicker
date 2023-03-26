@@ -3,13 +3,8 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <counter/>
     <counter-squared/>
-    <div class="buttons">
-      <button @click="$store.dispatch('decreaseCounter')">-</button>
-      <button @click="$store.dispatch('increaseCounter')">+</button>
-    </div>
-    <div>
-      <input placeholder="Enter color code" type="text" v-model="colorCode">
-    </div>
+    <buttons/>
+    <color-code/>
   </div>
 </template>
 
@@ -20,17 +15,9 @@ export default {
   components: {
     counter: require('@/components/Counter.vue').default,
     counterSquared: require('@/components/CounterSquared.vue').default,
+    buttons: require('@/components/Buttons.vue').default,
+    colorCode: require('@/components/ColorCode.vue').default,
   },
-  computed: {
-    colorCode: {
-      get() {
-        return this.$store.state.colorCode
-      },
-      set(newValue) {
-        this.$store.dispatch('setColorCode', newValue)
-      }
-    }
-  }
 }
 </script>
 
